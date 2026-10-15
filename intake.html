@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Intake</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="site.css">
+<style>input[type=text],textarea{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font-size:1rem}textarea{min-height:80px}</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="brand" href="index.html">Polish <span>Roots</span> Check</a></nav>
+<h1>Your case intake</h1>
+<p class="lead">Takes about 10 minutes. Your coordinator uses it to plan the records search and the application. Answer what you know; "unknown" is fine.</p>
+<form id="intake" class="card">
+<label class="q">Your full name (as on your passport)</label><input type="text" name="name" required>
+<label class="q">E-mail used for payment</label><input type="email" name="email" required>
+<label class="q">Country and state/province of residence</label><input type="text" name="residence" required>
+<label class="q">Polish ancestor: full name (and maiden name), date and place of birth</label><textarea name="ancestor" required></textarea>
+<label class="q">When did the ancestor leave Poland, and to which country? Did they naturalise there (year)? Military service before 1951?</label><textarea name="ancestor_events"></textarea>
+<label class="q">Each generation from the ancestor to you: name, date and place of birth, parents' marriage date</label><textarea name="line" required></textarea>
+<label class="q">Documents you already hold (Polish passport, birth/marriage records, naturalisation papers…)</label><textarea name="documents"></textarea>
+<label class="q">Family members who also want to apply (name, relation)</label><textarea name="family"></textarea>
+<label class="small" style="display:block;margin:10px 0"><input type="checkbox" name="consent" required> I agree that my data and my ancestors' data are processed to perform my order, as described in the <a href="privacy.html">privacy policy</a>.</label>
+<button type="submit">Send to my coordinator</button> <span id="msg" class="small"></span>
+</form>
+</div>
+<script>
+const LOG_URL = ""; // same Apps Script URL as index.html
+document.getElementById("intake").addEventListener("submit", e => {
+  e.preventDefault(); const d = new URLSearchParams(new FormData(e.target)); d.set("type", "intake"); d.set("ts", new Date().toISOString());
+  const done = () => { document.getElementById("msg").textContent = "Received — your coordinator will reply within 1 business day."; e.target.querySelector("button").disabled = true; };
+  if (!LOG_URL) return done();
+  fetch(LOG_URL, { method: "POST", mode: "no-cors", body: d }).then(done, done);
+});
+</script>
+</body>
+</html>

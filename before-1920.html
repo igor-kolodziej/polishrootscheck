@@ -52,5 +52,7 @@
 </div>
 <footer><nav><a href="index.html">The checker</a><a href="rules.html">How the checker decides</a><a href="before-1920.html">Ancestor left before 1920</a><a href="jewish-ancestry.html">Jewish ancestry</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav>General information, not legal advice. Polish Roots Check is a document and filing service, not a law firm, and does not represent clients in court.</footer>
 </div>
+<script>/* Pass the channel tag (?src=, or the external referrer) on to the checker links so the log shows where visitors came from. */
+(function(){var s=new URLSearchParams(location.search).get("src");if(!s&&document.referrer){var h=document.referrer.split("/")[2];if(h&&h!==location.host)s=h;}if(!s)return;document.querySelectorAll('a[href^="index.html"]').forEach(function(a){var u=new URL(a.getAttribute("href"),location.href);u.searchParams.set("src",s);a.href=u.pathname.split("/").pop()+u.search+u.hash;});})();</script>
 </body>
 </html>

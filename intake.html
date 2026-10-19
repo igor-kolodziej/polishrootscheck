@@ -27,7 +27,7 @@
 </form>
 </div>
 <script>
-const LOG_URL = ""; // same Apps Script URL as index.html
+const LOG_URL = "https://script.google.com/macros/s/AKfycbxQ4UatSdx2FdztQOxNPfzv75vt7rLSq8CB-gprDk-rf0ka2Uf_zm69VwCmo4YrUH9ujw/exec"; // same Apps Script URL as index.html
 document.getElementById("intake").addEventListener("submit", e => {
   e.preventDefault(); const d = new URLSearchParams(new FormData(e.target)); d.set("type", "intake"); d.set("ts", new Date().toISOString());
   const done = () => { document.getElementById("msg").textContent = "Received — your coordinator will reply within 1 business day."; e.target.querySelector("button").disabled = true; };

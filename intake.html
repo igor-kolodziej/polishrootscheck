@@ -6,11 +6,10 @@
 <title>Case Intake</title>
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="site.css">
-<style>input[type=text],textarea{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font-size:1rem}textarea{min-height:80px}</style>
 </head>
 <body>
 <div class="wrap">
-<nav><a class="brand" href="index.html">Polish <span>Roots</span> Check</a></nav>
+<header class="top"><a class="brand" href="index.html">Polish Roots Check</a></header>
 <h1>Your case intake</h1>
 <p class="lead">Takes about 10 minutes. Your coordinator uses it to plan the records search and the application. Answer what you know; "unknown" is fine.</p>
 <form id="intake" class="card">
@@ -22,15 +21,15 @@
 <label class="q">Each generation from the ancestor to you: name, date and place of birth, parents' marriage date</label><textarea name="line" required></textarea>
 <label class="q">Documents you already hold (Polish passport, birth/marriage records, naturalisation papers…)</label><textarea name="documents"></textarea>
 <label class="q">Family members who also want to apply (name, relation)</label><textarea name="family"></textarea>
-<label class="small" style="display:block;margin:10px 0"><input type="checkbox" name="consent" required> I agree that my data and my ancestors' data are processed to perform my order, as described in the <a href="privacy.html">privacy policy</a>.</label>
-<button type="submit">Send to my coordinator</button> <span id="msg" class="small"></span>
+<label class="check"><input type="checkbox" name="consent" required><span>I agree that my data and my ancestors' data are processed to perform my order, as described in the <a href="privacy.html">privacy policy</a>.</span></label>
+<div class="row"><button type="submit">Send to my coordinator</button><span id="msg" class="small"></span></div>
 </form>
 </div>
 <script>
 const LOG_URL = "https://script.google.com/macros/s/AKfycbxQ4UatSdx2FdztQOxNPfzv75vt7rLSq8CB-gprDk-rf0ka2Uf_zm69VwCmo4YrUH9ujw/exec"; // same Apps Script URL as index.html
 document.getElementById("intake").addEventListener("submit", e => {
   e.preventDefault(); const d = new URLSearchParams(new FormData(e.target)); d.set("type", "intake"); d.set("ts", new Date().toISOString());
-  const done = () => { document.getElementById("msg").textContent = "Received — your coordinator will reply within 1 business day."; e.target.querySelector("button").disabled = true; };
+  const done = () => { document.getElementById("msg").textContent = "Received. Your coordinator will reply within 1 business day."; e.target.querySelector("button").disabled = true; };
   if (!LOG_URL) return done();
   fetch(LOG_URL, { method: "POST", mode: "no-cors", body: d }).then(done, done);
 });

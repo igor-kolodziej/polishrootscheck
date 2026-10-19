@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Polish Citizenship by Descent Checker</title>
-<meta name="description" content="Free 3-minute check: do you already hold Polish (EU) citizenship through a parent, grandparent or great-grandparent? Based on the 1920, 1951, 1962 and 2009 Polish citizenship acts.">
+<meta name="description" content="Check in about three minutes whether Polish citizenship passed down to you from a parent, grandparent or great-grandparent. Uses the 1920, 1951, 1962 and 2009 Polish citizenship acts.">
+<link rel="preload" href="fonts/brygada-1918-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 <div class="wrap">
-<nav><a class="brand" href="index.html">Polish <span>Roots</span> Check</a><div class="links"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="rules.html">Rules</a><a href="#faq">FAQ</a></div></nav>
-<span class="badge">Free · 3 minutes · no sign-up</span>
-<h1>Are you already a Polish (EU) citizen by descent?</h1>
-<p class="lead">Polish citizenship passes from parent to child with no generation limit, but only if the line was never broken. This checker applies the rules of the 1920, 1951, 1962 and 2009 Polish citizenship acts to your family line and tells you what could break it.</p>
+<header class="top"><a class="brand" href="index.html">Polish Roots Check</a><nav><a href="#how">How it works</a><a href="#pricing">Prices</a><a href="rules.html">Rules</a><a href="#faq">FAQ</a></nav></header>
+
+<h1>Are you already a Polish citizen by descent?</h1>
+<p class="lead">Polish citizenship passes from parent to child with no limit on generations, as long as the line was never broken. Answer a few questions about your ancestor and each generation down to you, and the checker applies the 1920, 1951, 1962 and 2009 citizenship acts to show what could have broken it. It's free and needs no account.</p>
 
 <form id="f" autocomplete="off">
-<div class="card">
-<h2>1. Your Polish ancestor</h2>
+<section class="part">
+<h2>Your Polish ancestor</h2>
 <label class="q">How is the Polish-born ancestor related to you?</label>
 <div class="opts">
 <label><input type="radio" name="rel" value="1">Parent</label>
@@ -26,13 +27,13 @@
 </div>
 <label class="q">Ancestor's sex</label>
 <div class="opts"><label><input type="radio" name="a_sex" value="m">Male</label><label><input type="radio" name="a_sex" value="f">Female</label></div>
-<label class="q">Ancestor's year of birth <span class="hint">(approximate is fine)</span></label>
+<label class="q">Ancestor's year of birth <span class="hint">An approximate year is fine.</span></label>
 <input type="number" name="a_by" min="1840" max="2010" placeholder="e.g. 1905">
-<label class="q">On 31 January 1920 — or when their region joined Poland in 1920–22 — was the ancestor living in, or registered in a town of, interwar Poland (the 1921–39 borders)? <span class="hint">Answer "Yes" if they were born there later.</span></label>
+<label class="q">On 31 January 1920 (or when their region joined Poland in 1920–22), was the ancestor living in, or registered in a town of, interwar Poland within its 1921–39 borders? <span class="hint">Answer "Yes" if they were born there later.</span></label>
 <div class="opts">
 <label><input type="radio" name="a_1920" value="yes">Yes</label>
-<label><input type="radio" name="a_1920" value="emig">No — they had already emigrated</label>
-<label><input type="radio" name="a_1920" value="german">No — their town stayed German or in the Free City of Danzig (e.g., Breslau/Wrocław, Stettin, Danzig, East Prussia)</label>
+<label><input type="radio" name="a_1920" value="emig">No, they had already emigrated</label>
+<label><input type="radio" name="a_1920" value="german">No, their town stayed German or became the Free City of Danzig (e.g. Breslau/Wrocław, Stettin, Danzig, East Prussia)</label>
 <label><input type="radio" name="a_1920" value="unsure">Not sure</label>
 </div>
 <div id="partWrap" class="hide">
@@ -53,7 +54,7 @@
 <div id="aNatYear" class="hide"><label class="q">Year they became a citizen there</label><input type="number" name="a_ny" min="1850" max="2030" placeholder="e.g. 1938"></div>
 <div id="aMale" class="hide">
 <label class="q">Did he serve in a foreign army before 19 January 1951?</label>
-<div class="opts"><label><input type="radio" name="a_army" value="no">No</label><label><input type="radio" name="a_army" value="ww2">Yes — Allied forces in World War II</label><label><input type="radio" name="a_army" value="other">Yes — other service</label><label><input type="radio" name="a_army" value="unsure">Not sure</label></div>
+<div class="opts"><label><input type="radio" name="a_army" value="no">No</label><label><input type="radio" name="a_army" value="ww2">Yes, in Allied forces in World War II</label><label><input type="radio" name="a_army" value="other">Yes, other service</label><label><input type="radio" name="a_army" value="unsure">Not sure</label></div>
 </div>
 <div id="aFemale" class="hide">
 <label class="q">Did she marry a man who was not a Polish citizen before 19 January 1951?</label>
@@ -70,73 +71,83 @@
 <label class="q">Nationality recorded for the ancestor in Polish documents</label>
 <div class="opts"><label><input type="radio" name="a_eth" value="pl">Polish or Jewish</label><label><input type="radio" name="a_eth" value="min">Ukrainian, Belarusian, Lithuanian, Russian, Latvian, Estonian or German</label><label><input type="radio" name="a_eth" value="unsure">Not sure</label></div>
 </div>
-<label class="q">After 1950, did anyone on your line leave Poland on a one-way travel document (e.g., to Israel in 1958–84), apply to give up Polish citizenship, or lose it by an official decision?</label>
+<label class="q">After 1950, did anyone on your line leave Poland on a one-way travel document (for example to Israel in 1958–84), apply to give up Polish citizenship, or lose it by an official decision?</label>
 <div class="opts"><label><input type="radio" name="post51" value="no">No</label><label><input type="radio" name="post51" value="yes">Yes</label><label><input type="radio" name="post51" value="unsure">Not sure</label></div>
-</div>
+</section>
 
-<div class="card hide" id="lineCard">
-<h2>2. The line from the ancestor to you</h2>
-<p class="small">One block per generation, starting with the ancestor's child on your line and ending with you.</p>
+<section class="part hide" id="lineCard">
+<h2>Each generation down to you</h2>
+<p class="intro">Start with the ancestor's child on your line and finish with yourself.</p>
+<div class="line">
+<div class="node anc"><b>Your Polish ancestor</b><span>Answered above</span></div>
 <div id="gens"></div>
 </div>
+</section>
 
-<div class="row"><button type="submit">Check my eligibility</button><span class="small" id="err"></span></div>
+<div class="row"><button type="submit">Check my line</button><span id="err" role="alert"></span></div>
 </form>
 
-<div id="res" class="card hide" aria-live="polite">
-<div id="verdict" class="verdict"></div>
+<section id="res" class="result hide" aria-live="polite">
+<p id="verdict" class="verdict"></p>
 <div id="reasons"></div>
 <h2>Documents you will need</h2>
 <ul id="docs"></ul>
-<h2>Next step</h2>
-<div id="pkgBox" class="hide">
-<p><span class="price">$1,490 all-in</span> — we confirm your Polish citizenship for you: eligibility review, archive requests, sworn translations, state fees, the application, filing as your Polish proxy and tracking until the decision (+$650 per additional family member). Start with a 60% deposit ($894); the rest is due when we file. Full refund within 14 days, and refund of unused work if we find you are not eligible before filing.</p>
-<div class="row"><a id="pkgLink" href="#"><button type="button">Start my case — $894 deposit</button></a></div>
-<p class="small">Not ready? Choose the review below first<span id="callWrap" class="hide">, or <a id="callLink" href="#">book a free 15-minute call with a case coordinator</a></span>.</p>
+<h2>What you can do next</h2>
+<div id="pkgBox" class="offer hide">
+<p><span class="price">$1,490</span> for the whole confirmation</p>
+<p>We do the eligibility review, archive requests, sworn translations, the application and the state fees, file it in Poland as your proxy, and follow the case until the decision. Each additional family member on the same line is $650. You pay 60% ($894) to start and the rest when we file. You can cancel within 14 days for a full refund, and if we find before filing that your line doesn't qualify, we refund everything except work already done.</p>
+<div class="row"><a id="pkgLink" class="btn" href="#">Pay $894 and start my case</a></div>
+<p class="small">Not sure yet? Start with the $79 review below<span id="callWrap" class="hide">, or <a id="callLink" href="#">book a free 15-minute call with a case coordinator</a></span>.</p>
 </div>
-<p><span class="price">$79</span> expert eligibility review — a Polish citizenship case specialist checks your line against the 1920–2009 acts, lists the risk points and the exact archives and records to request, within 5 business days. Credited in full if you continue with the all-in confirmation service ($1,490 for the first applicant incl. archive search, sworn translations, fees and filing; +$650 per additional family member).</p>
-<div class="row"><a id="payLink" href="#" class="hide"><button type="button">Get my expert eligibility review</button></a></div>
-<h2>Or get this result and the checklist by e-mail (free)</h2>
+<div class="offer">
+<p><span class="price">$79</span> for an expert review</p>
+<p>A citizenship case specialist checks your line against the 1920 to 2009 acts and sends you the risk points and the exact records to request, within 5 business days. The $79 is credited in full if you go on to the $1,490 service.</p>
+<div class="row"><a id="payLink" class="btn sec hide" href="#">Order the $79 review</a></div>
+</div>
+<div class="offer">
+<p><b>Get this result by e-mail</b></p>
 <form id="lead">
-<input type="email" name="email" required placeholder="you@example.com">
-<label class="small" style="display:block;margin:8px 0"><input type="checkbox" name="consent" required> I agree to receive my result and up to 3 follow-up e-mails about Polish citizenship confirmation. Unsubscribe anytime.</label>
-<label class="small" style="display:block;margin:8px 0"><input type="checkbox" name="memo"> I'm interested in the $79 expert eligibility review.</label>
-<button type="submit" class="sec">Send me my result</button> <span id="leadMsg" class="small"></span>
+<input type="email" name="email" required placeholder="you@example.com" aria-label="Your e-mail">
+<label class="check"><input type="checkbox" name="consent" required><span>Send me my result and up to 3 follow-up e-mails about Polish citizenship confirmation. I can unsubscribe at any time.</span></label>
+<label class="check"><input type="checkbox" name="memo"><span>I'm interested in the $79 expert review.</span></label>
+<div class="row"><button type="submit" class="sec">E-mail me my result</button><span id="leadMsg" class="small"></span></div>
 </form>
-<p class="small">General information, not legal advice. We are a citizenship document and filing service, not a law firm. If you want a legal opinion or court representation, you can engage an independent Polish attorney directly; we receive no fee from attorneys.</p>
 </div>
+<p class="small">This is general information, not legal advice. We are a document and filing service, not a law firm. If you want a legal opinion or court representation, you can hire an independent Polish attorney directly; we take no fees from attorneys.</p>
+</section>
 
-<div class="card" id="how">
+<section class="part" id="how">
 <h2>How it works</h2>
 <ol class="steps">
-<li><b>Free check (3 minutes).</b> Instant result with the exact points that could break your line and the documents you need.</li>
-<li><b>Expert eligibility review ($79, optional).</b> A Polish citizenship case specialist checks your line and lists the archives and records to request. Credited if you continue.</li>
-<li><b>We handle the confirmation.</b> Archive requests in Poland, certified (sworn) translations, the application, state fees, and filing at the Mazowiecki Voivode Office with our Poland-based coordinator acting as your proxy.</li>
-<li><b>Tracking until the decision.</b> Status updates and replies to the office for you. Warsaw decisions currently take about 18–24 months.</li>
+<li><b>Free check.</b> About three minutes. You see straight away what could break your line and which documents you need.</li>
+<li><b>Expert review, $79 (optional).</b> A case specialist checks your line and lists the archives and records to request. The fee is credited if you continue.</li>
+<li><b>We prepare and file.</b> Archive requests in Poland, sworn translations, the application and the state fees. Our coordinator in Poland files it at the Mazowiecki Voivode Office as your proxy.</li>
+<li><b>We follow the case to the decision.</b> We answer the office's letters and keep you posted. Warsaw currently takes about 18 to 24 months to decide.</li>
 </ol>
-</div>
+</section>
 
-<div class="card" id="pricing">
-<h2>Pricing — fixed and all-in</h2>
+<section class="part" id="pricing">
+<h2>Prices</h2>
 <table>
 <tr><td>Eligibility check</td><td>Free</td></tr>
-<tr><td>Expert eligibility review (credited to the package)</td><td>$79</td></tr>
-<tr><td>Citizenship confirmation, first applicant — review, application, sworn translations, state fees (277 PLN + 17 PLN), filing as your proxy, tracking</td><td>$1,490</td></tr>
+<tr><td>Expert review (credited to the full service)</td><td>$79</td></tr>
+<tr><td>Citizenship confirmation for the first applicant: review, application, sworn translations, state fees (277 PLN + 17 PLN), filing as your proxy and tracking</td><td>$1,490</td></tr>
 <tr><td>Each additional family member on the same line</td><td>$650</td></tr>
-<tr><td>Archive search in Poland if you lack the ancestor's records (capped)</td><td>$390</td></tr>
+<tr><td>Archive search in Poland if you don't have the ancestor's records (capped)</td><td>$390</td></tr>
 </table>
-<p class="small">60% when you start, 40% when we file. 14-day full refund; if we find you are not eligible before filing, we refund everything except work already done. Passport and civil-record transcription after the decision are separate and optional.</p>
-</div>
+<p class="small">You pay 60% to start and 40% when we file. Full refund within 14 days. If we find before filing that you're not eligible, we refund everything except work already done. Passport applications and transcription of civil records after the decision are not included.</p>
+</section>
 
-<div class="card" id="faq">
-<h2>FAQ</h2>
-<details><summary>Do I have to give up my current citizenship?</summary><p>No. Poland allows dual citizenship; you confirm a citizenship you already hold by descent.</p></details>
-<details><summary>Do I need to travel to Poland?</summary><p>No. The application is filed by your proxy in Poland. You sign a power of attorney and send original or certified documents by courier.</p></details>
-<details><summary>Are you a law firm?</summary><p>No. We are a citizenship document and filing service; Polish law allows any adult to act as your proxy in this administrative procedure. If you want a legal opinion or court representation, you can engage an independent Polish attorney directly — we take no fee from attorneys.</p></details>
-<details><summary>What if my ancestor's documents are missing?</summary><p>Most records can be found in Polish civil and church archives. Our capped archive search covers the request, fees and follow-up.</p></details>
-<details><summary>How long does it take?</summary><p>We prepare and file within about 4–8 weeks of receiving your documents. The Mazowiecki Voivode Office then currently takes around 18–24 months to decide.</p></details>
-</div>
-<footer class="small">Polish Roots Check · <a href="rules.html">How the checker decides</a> · <a href="before-1920.html">Ancestor left before 1920</a> · <a href="jewish-ancestry.html">Jewish ancestry</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a id="contactLink" href="#">Contact</a></footer>
+<section class="part" id="faq">
+<h2>Questions</h2>
+<details><summary>Do I have to give up my current citizenship?</summary><p>No. Poland allows dual citizenship, and you are confirming a citizenship you already hold by descent.</p></details>
+<details><summary>Do I need to travel to Poland?</summary><p>No. Your proxy in Poland files the application. You sign a power of attorney and send original or certified documents by courier.</p></details>
+<details><summary>Are you a law firm?</summary><p>No. We are a document and filing service. Polish law allows any adult to act as your proxy in this administrative procedure. If you want a legal opinion or court representation, you can hire an independent Polish attorney directly; we take no fees from attorneys.</p></details>
+<details><summary>What if my ancestor's documents are missing?</summary><p>Most records can be found in Polish civil and church archives. Our capped archive search covers the request, the fees and the follow-up.</p></details>
+<details><summary>How long does it take?</summary><p>We prepare and file within about 4 to 8 weeks of receiving your documents. The Mazowiecki Voivode Office then takes around 18 to 24 months to decide.</p></details>
+</section>
+
+<footer><nav><a href="rules.html">How the checker decides</a><a href="before-1920.html">Ancestor left before 1920</a><a href="jewish-ancestry.html">Jewish ancestry</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a id="contactLink" href="#">Contact</a></nav>Polish Roots Check is a document and filing service run from Warsaw. It is not a law firm.</footer>
 </div>
 
 <script>
@@ -157,7 +168,7 @@ const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
 
 function genLabel(i, n) { // i = 1..n, n = generations (rel); generation n is the user
   if (i === n) return "You";
-  return cap(ordinal[n - i - 1]) + (i === 1 ? " — the ancestor's child" : "");
+  return cap(ordinal[n - i - 1]) + (i === 1 ? " (the ancestor's child)" : "");
 }
 const radios = (name, opts) => `<div class="opts">${opts.map(([v, t]) => `<label><input type="radio" name="${name}" value="${v}">${t}</label>`).join("")}</div>`;
 
@@ -170,7 +181,7 @@ function renderGens() {
     h += `<div class="gen" data-i="${i}"><b>${genLabel(i, n)}</b>
 <label class="q">Year of birth</label><input type="number" name="g${i}_by" min="1860" max="2026">
 <label class="q">Sex</label>${radios(`g${i}_sex`, [["m", "Male"], ["f", "Female"]])}
-<div class="pre20 hide"><label class="q">Born inside interwar Poland's borders?</label>${radios(`g${i}_pl`, [["yes", "Yes"], ["no", "No — born abroad"], ["unsure", "Not sure"]])}</div>
+<div class="pre20 hide"><label class="q">Born inside interwar Poland's borders?</label>${radios(`g${i}_pl`, [["yes", "Yes"], ["no", "No, born abroad"], ["unsure", "Not sure"]])}</div>
 <div class="pre51 hide">
 <label class="q">Was the other parent also a Polish citizen?</label>${radios(`g${i}_op`, [["yes", "Yes"], ["no", "No"], ["unsure", "Not sure"]])}
 <label class="q">Were the parents married at the time of birth?</label>${radios(`g${i}_mw`, [["yes", "Yes"], ["no", "No"], ["unsure", "Not sure"]])}
@@ -210,7 +221,7 @@ function assess() {
   if (A === "german") out.block.push("Towns that stayed German (e.g., Breslau/Wrocław, Stettin, East Prussia) or in the Free City of Danzig between the wars: their people were German or Danzig citizens, not Polish citizens.");
   if (A === "emig") {
     const part = val("a_part");
-    out.review.push("The ancestor emigrated before Polish citizenship existed (31 January 1920). Emigrants still became Polish if they stayed registered at home — " +
+    out.review.push("The ancestor emigrated before Polish citizenship existed (31 January 1920). Emigrants still became Polish if they stayed registered at home: " +
       (part === "austria" ? "for Galicia, through the right of domicile (prawo przynależności) in a town now in Poland" : part === "russia" ? "for the Russian partition, through entry in the population books (księgi ludności) of the Kingdom of Poland or registration in a commune" : "through registration in a commune or population books, depending on the partition") +
       ", and only if they held no other citizenship before 1920. Archive extracts decide this.");
   }
@@ -296,10 +307,10 @@ function assess() {
 
 const DOCS = ["Ancestor's Polish birth or baptism record (we can search Polish archives if you don't have it)",
   "Proof the ancestor was a Polish citizen after 1920: Polish passport, ID, military booklet, or a population-book (księgi ludności) or commune registration extract",
-  "Naturalisation record — or a certificate that none exists (US: USCIS genealogy request / NARA)",
+  "Naturalisation record, or a certificate that none exists (US: USCIS genealogy request or NARA)",
   "Birth and marriage certificates for every generation down to you",
   "Military discharge papers for men on the line who served before 1951 (if any)",
-  "Your passport; every foreign document needs a certified (sworn) Polish translation — included in the service"];
+  "Your passport; every foreign document needs a sworn Polish translation, which is included in the service"];
 
 function track(type, extra) {
   if (!LOG_URL) return Promise.resolve();
@@ -310,20 +321,20 @@ let last = null;
 f.addEventListener("submit", e => {
   e.preventDefault();
   const r = assess(); const err = document.getElementById("err");
-  if (!r) { err.textContent = "Please answer the questions in section 1 and give a birth year and sex for each generation."; return; }
+  if (!r) { err.textContent = "Answer the questions about your ancestor, and give a year of birth and sex for each generation."; return; }
   err.textContent = "";
   const v = document.getElementById("verdict");
   let code;
-  if (r.block.length) { code = "unlikely"; v.className = "verdict v-bad"; v.textContent = "Unlikely on this line — but check your other lines"; }
-  else if (r.review.length) { code = "possible"; v.className = "verdict v-warn"; v.textContent = "Possibly eligible — a few points need documents"; }
-  else { code = "likely"; v.className = "verdict v-ok"; v.textContent = "Likely eligible — your line looks unbroken"; }
+  if (r.block.length) { code = "unlikely"; v.className = "verdict v-bad"; v.textContent = "Unlikely on this line. Check your other lines too."; }
+  else if (r.review.length) { code = "possible"; v.className = "verdict v-warn"; v.textContent = "Possibly eligible: a few points need documents"; }
+  else { code = "likely"; v.className = "verdict v-ok"; v.textContent = "Likely eligible: your line looks unbroken"; }
   const li = a => a.map(x => `<li>${x}</li>`).join("");
   document.getElementById("reasons").innerHTML = (r.block.length ? `<h2>What breaks the line</h2><ul>${li(r.block)}</ul>` : "") + (r.review.length ? `<h2>Points to verify</h2><ul>${li(r.review)}</ul>` : "") + (r.info.length ? `<h2>Good to know</h2><ul>${li(r.info)}</ul>` : "") + (code === "unlikely" ? `<p class="small">Each grandparent and great-grandparent is a separate line. If another ancestor was Polish, run the check again for that line.</p>` : "");
   document.getElementById("docs").innerHTML = li(DOCS);
   if (CALL_URL) { document.getElementById("callLink").href = CALL_URL; show("callWrap", true); }
   const pkg = document.getElementById("pkgLink"); show("pkgBox", !!PAY_PKG_URL && code !== "unlikely"); if (PAY_PKG_URL) pkg.href = PAY_PKG_URL;
   const pay = document.getElementById("payLink"); if (PAY_URL && code !== "unlikely") { pay.href = PAY_URL; pay.classList.remove("hide"); } else pay.classList.add("hide");
-  show("res", true); document.getElementById("res").scrollIntoView({ behavior: "smooth" });
+  show("res", true); document.getElementById("res").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   const answers = {}; new FormData(f).forEach((x, k) => answers[k] = x);
   last = { verdict: code, nblock: r.block.length, nreview: r.review.length, answers: JSON.stringify(answers), reasons: r.block.concat(r.review).join("\n- ") };
   track("result", last);
@@ -334,7 +345,7 @@ document.getElementById("payLink").addEventListener("click", () => track("pay_cl
 document.getElementById("lead").addEventListener("submit", e => {
   e.preventDefault(); const d = new FormData(e.target);
   track("lead", Object.assign({}, last || {}, { email: d.get("email"), memo: d.get("memo") ? "yes" : "no" })).then(() => {
-    document.getElementById("leadMsg").textContent = "Thanks — your result is on its way."; e.target.querySelector("button").disabled = true; });
+    document.getElementById("leadMsg").textContent = "Sent. Check your inbox, and your spam folder if it isn't there."; e.target.querySelector("button").disabled = true; });
 });
 track("view");
 </script>
